@@ -3,6 +3,8 @@ use rand::Rng;
 use std::cmp::Ordering;
 
 fn main() {
+// loop added
+    loop{ 
 
     println!("welcome to the guess game");
     println!("input your guess in number");
@@ -23,6 +25,8 @@ match guess.cmp(&random_number){
     Ordering::Greater=>println!("Your guess is Too Big"),
     Ordering::Equal=>println!("Your guess is Equal"),
 }
+
+    }
 
     
 }
