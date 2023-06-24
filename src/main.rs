@@ -18,12 +18,24 @@ fn main() {
     println!("Random number: {}", random_number);
 
 //    comparing of guess game
-let guess:u32=guess.trim().parse().expect("Type a number");
+// let guess:u32=guess.trim().parse().expect("Type a number");
+
+// adding error handling
+let guess:u32=match guess.trim().parse(){
+    Ok(num)=>num,
+    Err(_)=>continue,
+};
+
 
 match guess.cmp(&random_number){
     Ordering::Less=>println!("Your guess is Too small"),
     Ordering::Greater=>println!("Your guess is Too Big"),
-    Ordering::Equal=>println!("Your guess is Equal"),
+    // Ordering::Equal=>println!("Your guess is Equal"),
+    //break from loop when user guess corretly
+    Ordering::Equal=>{
+        println!("you win");
+        break;
+    }
 }
 
     }
